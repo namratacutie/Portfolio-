@@ -1,0 +1,85 @@
+/* Hide default cursor */
+* {
+    cursor: none !important;
+}
+
+.custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.custom-cursor.visible {
+    opacity: 1;
+}
+
+.cursor-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--neon-pink);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: var(--glow-pink);
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.cursor-ring {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--neon-cyan);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease, border-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+    box-shadow: var(--glow-cyan);
+}
+
+/* Hover state */
+.custom-cursor.hovering .cursor-dot {
+    transform: translate(-50%, -50%) scale(1.5);
+    background: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+.custom-cursor.hovering .cursor-ring {
+    width: 60px;
+    height: 60px;
+    border-color: var(--neon-pink);
+    box-shadow: var(--glow-pink);
+}
+
+/* Click state */
+.custom-cursor.clicking .cursor-dot {
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+.custom-cursor.clicking .cursor-ring {
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Trail effect */
+.cursor-trail {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--neon-purple) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    mix-blend-mode: screen;
+}
+
+/* Mobile - show default cursor */
+@media (max-width: 768px) {
+    * {
+        cursor: auto !important;
+    }
+
+    .custom-cursor,
+    .cursor-trail {
+        display: none !important;
+    }
+}

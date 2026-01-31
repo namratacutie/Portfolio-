@@ -1,28 +1,33 @@
-// Import the functions you need from the SDKs you need
+// Firebase configuration using environment variables
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
-import { firestore, getFirestore } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import { getDatabase } from "firebase/database";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Firebase configuration from environment variables
 const firebaseConfig = {
-    apiKey: "AIzaSyATVcW6_fzSLxbzUswmJMm0DqJ4dq-fgAU",
-    authDomain: "portfolio-a20d2.firebaseapp.com",
-    projectId: "portfolio-a20d2",
-    storageBucket: "portfolio-a20d2.firebasestorage.app",
-    messagingSenderId: "1046776271760",
-    appId: "1:1046776271760:web:5ffa41e5e755264d0d1915",
-    measurementId: "G-K66DDRG7X5"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+// Only initialize analytics in browser environment
+let analytics = null;
+if (typeof window !== 'undefined') {
+    analytics = getAnalytics(app);
+}
+
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const rtdb = getDatabase(app);
+export { analytics };
 export default app;
