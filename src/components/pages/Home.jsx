@@ -1,11 +1,5 @@
 import React from 'react';
 import Hero from '../sections/Hero';
-import About from '../sections/About';
-import Projects from '../sections/Projects';
-import Skills from '../sections/Skills';
-import Experience from '../sections/Experience';
-import Blog from '../sections/Blog';
-import Contact from '../sections/Contact';
 import Navbar from '../ui/Navbar';
 
 const Home = () => {
@@ -14,7 +8,7 @@ const Home = () => {
             <Navbar />
             <main>
                 <Hero />
-                {/* Other sections - will be built in Phase 3 */}
+                {/* Placeholder sections - Phase 3 */}
                 <section id="about" className="section">
                     <div style={{ padding: '100px 5%', textAlign: 'center' }}>
                         <h2 className="heading-lg neon-cyan">About Me</h2>
