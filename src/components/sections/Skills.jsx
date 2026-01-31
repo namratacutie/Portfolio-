@@ -15,9 +15,9 @@ const Skills = () => {
             color: 'var(--neon-pink)',
             skills: [
                 { name: 'React / Next.js', level: 95 },
-                { name: 'TypeScript', level: 85 },
-                { name: 'Three.js / WebGL', level: 80 },
-                { name: 'CSS / SASS', level: 90 },
+                { name: 'TypeScript', level: 10 },
+                { name: 'Three.js / WebGL', level: 40 },
+                { name: 'CSS / SASS', level: 95 },
                 { name: 'GSAP / Framer Motion', level: 85 }
             ]
         },
@@ -27,10 +27,10 @@ const Skills = () => {
             color: 'var(--neon-cyan)',
             skills: [
                 { name: 'Node.js / Express', level: 90 },
-                { name: 'Python / Django', level: 75 },
-                { name: 'REST APIs', level: 95 },
-                { name: 'GraphQL', level: 70 },
-                { name: 'WebSockets', level: 80 }
+                { name: 'Python / Django', level: 30 },
+                { name: 'REST APIs', level: 80 },
+                { name: 'GraphQL', level: 50 },
+                { name: 'WebSockets', level: 60 }
             ]
         },
         {
@@ -38,10 +38,10 @@ const Skills = () => {
             icon: '🗄️',
             color: 'var(--neon-purple)',
             skills: [
-                { name: 'MongoDB', level: 90 },
-                { name: 'PostgreSQL', level: 85 },
-                { name: 'Firebase / Firestore', level: 95 },
-                { name: 'Redis', level: 70 },
+                { name: 'MongoDB', level: 60 },
+                { name: 'PostgreSQL', level: 20 },
+                { name: 'Firebase / Firestore', level: 90 },
+                { name: 'Redis', level: 30 },
                 { name: 'MySQL', level: 80 }
             ]
         },
@@ -50,11 +50,11 @@ const Skills = () => {
             icon: '📱',
             color: 'var(--neon-orange)',
             skills: [
-                { name: 'React Native', level: 85 },
+                { name: 'React Native', level: 10 },
                 { name: 'Flutter', level: 80 },
                 { name: '.NET MAUI', level: 75 },
-                { name: 'Expo', level: 85 },
-                { name: 'Native APIs', level: 70 }
+                { name: 'Expo', level: 0 },
+                { name: 'Native APIs', level: 10 }
             ]
         }
     ];

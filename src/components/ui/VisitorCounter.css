@@ -1,0 +1,44 @@
+.visitor-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 25px;
+    background: rgba(13, 13, 21, 0.8);
+    border: 1px solid rgba(255, 45, 149, 0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.counter-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+}
+
+.counter-digits {
+    display: flex;
+    gap: 4px;
+}
+
+.digit {
+    background: #000;
+    color: var(--neon-pink);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    padding: 8px 6px;
+    border-radius: 4px;
+    min-width: 24px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 45, 149, 0.2);
+    border: 1px solid rgba(255, 45, 149, 0.1);
+}
+
+/* Add simplified view for footer */
+.footer-counter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}

@@ -268,3 +268,19 @@ a.info-value:hover {
         align-items: flex-start;
     }
 }
+
+.footer-counter-wrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-counter-wrapper .visitor-counter {
+    transform: scale(0.8);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-counter-wrapper .visitor-counter:hover {
+    opacity: 1;
+}

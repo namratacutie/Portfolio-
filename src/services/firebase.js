@@ -26,8 +26,22 @@ if (typeof window !== 'undefined') {
     analytics = getAnalytics(app);
 }
 
+// Initialize services
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-export const rtdb = getDatabase(app);
+
+// Gracefully handle Realtime Database initialization
+let rtdbInstance = null;
+try {
+    if (firebaseConfig.databaseURL) {
+        rtdbInstance = getDatabase(app);
+    } else {
+        console.warn("Firebase Realtime Database URL not found in env variables.");
+    }
+} catch (e) {
+    console.error("Failed to initialize Realtime Database:", e);
+}
+
+export const rtdb = rtdbInstance;
 export { analytics };
 export default app;

@@ -12,28 +12,6 @@ const Projects = () => {
     const projects = [
         {
             id: 1,
-            title: 'E-Commerce Platform',
-            description: 'Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.',
-            image: '/projects/ecommerce.jpg',
-            tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-            category: 'web',
-            github: 'https://github.com',
-            live: 'https://example.com',
-            featured: true
-        },
-        {
-            id: 2,
-            title: 'Mobile Banking App',
-            description: 'Cross-platform mobile banking application with biometric authentication and real-time transactions.',
-            image: '/projects/banking.jpg',
-            tags: ['Flutter', 'Firebase', 'REST API'],
-            category: 'mobile',
-            github: 'https://github.com',
-            live: 'https://example.com',
-            featured: true
-        },
-        {
-            id: 3,
             title: '3D Portfolio Template',
             description: 'Interactive 3D portfolio website template with Three.js animations and immersive experience.',
             image: '/projects/portfolio.jpg',
@@ -44,34 +22,12 @@ const Projects = () => {
             featured: true
         },
         {
-            id: 4,
-            title: 'Task Management System',
-            description: 'Collaborative project management tool with real-time updates and team features.',
+            id: 2,
+            title: 'Shoyambhu Motors',
+            description: 'Collaborative car servicing management tool with real-time updates and other features.',
             image: '/projects/tasks.jpg',
-            tags: ['React', 'Firebase', 'Material UI'],
-            category: 'web',
-            github: 'https://github.com',
-            live: 'https://example.com',
-            featured: false
-        },
-        {
-            id: 5,
-            title: 'Fitness Tracker',
-            description: 'Health and fitness tracking app with workout plans, progress charts, and social features.',
-            image: '/projects/fitness.jpg',
-            tags: ['React Native', 'Node.js', 'PostgreSQL'],
+            tags: ['React', 'Firebase', 'Flutter'],
             category: 'mobile',
-            github: 'https://github.com',
-            live: 'https://example.com',
-            featured: false
-        },
-        {
-            id: 6,
-            title: 'AI Chat Assistant',
-            description: 'Intelligent chatbot with natural language processing and context-aware responses.',
-            image: '/projects/ai.jpg',
-            tags: ['Python', 'TensorFlow', 'React'],
-            category: 'ai',
             github: 'https://github.com',
             live: 'https://example.com',
             featured: false

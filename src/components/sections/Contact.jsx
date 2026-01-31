@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Contact.css';
+import { db } from '../../services/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import VisitorCounter from '../ui/VisitorCounter';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,8 +24,8 @@ const Contact = () => {
         {
             icon: '📧',
             label: 'Email',
-            value: 'hello@lawarna.dev',
-            link: 'mailto:hello@lawarna.dev'
+            value: 'lawarnaaree@gmail.com',
+            link: 'mailto:lawarnaaree@gmail.com'
         },
         {
             icon: '📍',
@@ -49,15 +52,22 @@ const Contact = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate form submission - will be replaced with Firebase
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        try {
+            await addDoc(collection(db, 'messages'), {
+                ...formData,
+                timestamp: serverTimestamp(),
+                read: false
+            });
 
-        setIsSubmitting(false);
-        setSubmitted(true);
-        setFormData({ name: '', email: '', subject: '', message: '' });
-
-        // Reset success message after 5 seconds
-        setTimeout(() => setSubmitted(false), 5000);
+            setSubmitted(true);
+            setFormData({ name: '', email: '', subject: '', message: '' });
+            setTimeout(() => setSubmitted(false), 5000);
+        } catch (error) {
+            console.error("Error sending message: ", error);
+            alert("Failed to send message. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     useEffect(() => {
@@ -181,8 +191,9 @@ const Contact = () => {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    placeholder="John Doe"
+                                    placeholder="Lawarna Aree"
                                     required
+                                    autoComplete="name"
                                     className="hoverable"
                                 />
                             </div>
@@ -194,8 +205,9 @@ const Contact = () => {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    placeholder="john@example.com"
+                                    placeholder="lawarnaaree@gmail.com"
                                     required
+                                    autoComplete="email"
                                     className="hoverable"
                                 />
                             </div>
@@ -211,6 +223,7 @@ const Contact = () => {
                                 onChange={handleChange}
                                 placeholder="Project Inquiry"
                                 required
+                                autoComplete="off"
                                 className="hoverable"
                             />
                         </div>
@@ -225,6 +238,7 @@ const Contact = () => {
                                 placeholder="Tell me about your project..."
                                 rows="5"
                                 required
+                                autoComplete="off"
                                 className="hoverable"
                             />
                         </div>
@@ -259,8 +273,11 @@ const Contact = () => {
                         © 2026 <span className="neon-pink">Lawarna Aree</span>. All rights reserved.
                     </p>
                     <p className="footer-credit">
-                        Built with <span className="neon-cyan">❤</span> using React & Three.js
+                        Built with <span className="neon-cyan">❤</span>
                     </p>
+                    <div className="footer-counter-wrapper">
+                        <VisitorCounter />
+                    </div>
                 </div>
             </footer>
         </section>

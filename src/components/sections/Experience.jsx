@@ -12,57 +12,25 @@ const Experience = () => {
     const experiences = [
         {
             id: 1,
-            role: 'Senior Fullstack Developer',
-            company: 'Tech Company',
-            location: 'Remote',
-            period: '2024 - Present',
-            description: 'Leading development of scalable web applications and mentoring junior developers. Implementing best practices and modern architecture patterns.',
+            role: 'Junior Web Developer',
+            company: 'Digo InfoTech Pvt.Ltd',
+            location: 'Hybrid',
+            period: '2025 - 2026',
+            description: 'Leading development of scalable web applications. Implementing best practices and modern architecture patterns.',
             achievements: [
-                'Led team of 5 developers on major product launch',
-                'Improved application performance by 40%',
-                'Implemented CI/CD pipeline reducing deployment time'
+                'Developed websites and fullstack cross-platfrom apps.',
             ],
             type: 'work'
         },
         {
             id: 2,
-            role: 'Fullstack Developer',
-            company: 'Startup Inc',
-            location: 'Kathmandu, Nepal',
-            period: '2022 - 2024',
-            description: 'Developed and maintained multiple web and mobile applications. Collaborated with cross-functional teams to deliver high-quality products.',
+            role: 'Cross Platform App Developer',
+            company: 'Digo InfoTech Pvt.Ltd',
+            location: 'Hybrid',
+            period: '2026 - Present',
+            description: 'Leading development of scalable mobile applications. Implementing best practices and modern architecture patterns.',
             achievements: [
-                'Built 3 production-ready applications from scratch',
-                'Integrated payment systems and third-party APIs',
-                'Optimized database queries improving response times'
-            ],
-            type: 'work'
-        },
-        {
-            id: 3,
-            role: 'Computer Science Degree',
-            company: 'University',
-            location: 'Nepal',
-            period: '2019 - 2023',
-            description: 'Bachelor\'s degree in Computer Science with focus on software engineering and web technologies.',
-            achievements: [
-                'Graduated with distinction',
-                'Led student developer community',
-                'Completed multiple capstone projects'
-            ],
-            type: 'education'
-        },
-        {
-            id: 4,
-            role: 'Freelance Developer',
-            company: 'Self-employed',
-            location: 'Remote',
-            period: '2021 - 2022',
-            description: 'Provided freelance development services for various clients, building custom websites and applications.',
-            achievements: [
-                'Delivered 10+ client projects',
-                'Maintained 100% client satisfaction',
-                'Built long-term client relationships'
+                'Developed fullstack online car servicing cross-platfrom app.',
             ],
             type: 'work'
         }
