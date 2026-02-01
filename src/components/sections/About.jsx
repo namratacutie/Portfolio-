@@ -54,10 +54,10 @@ const About = () => {
     }, []);
 
     const stats = [
-        { number: '3+', label: 'Years Experience' },
-        { number: '20+', label: 'Projects Completed' },
+        { number: '2+', label: 'Years Experience' },
+        { number: '5+', label: 'Projects Completed' },
         { number: '10+', label: 'Technologies' },
-        { number: '100%', label: 'Client Satisfaction' }
+        { number: '95%', label: 'Client Satisfaction' }
     ];
 
     return (
@@ -91,7 +91,7 @@ const About = () => {
                         powerful functionality.
                     </p>
                     <p className="text-body about-text about-animate">
-                        With expertise in React, Node.js, Firebase, and mobile frameworks,
+                        With expertise in C++, Python, React, Node.js, Firebase, and mobile frameworks,
                         I create immersive digital experiences that push the boundaries of
                         what's possible on the web.
                     </p>
@@ -110,7 +110,7 @@ const About = () => {
                     <div className="about-tech about-animate">
                         <span className="tech-label">Tech I work with:</span>
                         <div className="tech-icons">
-                            {['React', 'Node.js', 'Firebase', 'Three.js', 'Flutter'].map((tech, i) => (
+                            {['C++', 'Python', 'React', 'Node.js', 'Firebase', 'Three.js', 'Flutter'].map((tech, i) => (
                                 <span key={i} className="tech-tag hoverable">{tech}</span>
                             ))}
                         </div>
