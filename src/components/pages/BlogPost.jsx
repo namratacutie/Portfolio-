@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getPostById } from '../../services/blog';
 
 const BlogPost = () => {
@@ -30,6 +30,12 @@ const BlogPost = () => {
     return (
         <main className="section" style={{ paddingTop: '120px' }}>
             <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                <Link to="/" className="btn btn-outline" style={{ marginBottom: '30px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back to Home
+                </Link>
                 <span className="neon-pink" style={{ display: 'block', marginBottom: '10px' }}>{post.category}</span>
                 <h1 className="heading-lg neon-cyan" style={{ marginBottom: '20px' }}>{post.title}</h1>
                 <div style={{ display: 'flex', gap: '20px', color: 'var(--text-secondary)', marginBottom: '40px' }}>

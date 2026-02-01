@@ -60,14 +60,10 @@ const Skills = () => {
     ];
 
     const tools = [
-        { name: 'VS Code', icon: '💻' },
         { name: 'Git', icon: '🔀' },
         { name: 'Docker', icon: '🐳' },
-        { name: 'Figma', icon: '🎨' },
-        { name: 'Postman', icon: '📮' },
-        { name: 'AWS', icon: '☁️' },
-        { name: 'Vercel', icon: '▲' },
-        { name: 'GitHub Actions', icon: '⚡' }
+        { name: 'GitHub Actions', icon: '⚡' },
+        { name: 'Firebase', icon: '🔥' }
     ];
 
     useEffect(() => {
