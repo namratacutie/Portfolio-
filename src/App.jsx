@@ -14,6 +14,52 @@ import ErrorBoundary from './components/ui/ErrorBoundary';
 import Lenis from 'lenis';
 import { AuthProvider } from './components/context/AuthContext.jsx';
 import Login from './components/pages/Login';
+import NotFound from './components/pages/NotFound';
+
+import { AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
+import PageTransition from './components/ui/PageTransition';
+
+const AnimatedRoutes = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={
+          <PageTransition>
+            <Home />
+          </PageTransition>
+        } />
+        <Route path="/blog" element={
+          <PageTransition>
+            <BlogPage />
+          </PageTransition>
+        } />
+        <Route path="/blog/:id" element={
+          <PageTransition>
+            <BlogPost />
+          </PageTransition>
+        } />
+        <Route path="/login" element={
+          <PageTransition>
+            <Login />
+          </PageTransition>
+        } />
+        <Route path="/admin" element={
+          <PageTransition>
+            <Admin />
+          </PageTransition>
+        } />
+        <Route path="*" element={
+          <PageTransition>
+            <NotFound />
+          </PageTransition>
+        } />
+      </Routes>
+    </AnimatePresence>
+  );
+};
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,13 +89,7 @@ const App = () => {
         <Router>
           <CustomCursor />
           {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/blog/:id" element={<BlogPost />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/admin" element={<Admin />} />
-          </Routes>
+          <AnimatedRoutes />
         </Router>
       </AuthProvider>
     </ErrorBoundary>
