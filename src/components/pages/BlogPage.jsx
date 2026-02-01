@@ -23,7 +23,7 @@ const BlogPage = () => {
     }, []);
 
     return (
-        <main className="section" style={{ paddingTop: '120px', minHeight: '100vh' }}>
+        <main className="section blog-page-main">
             <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
 
                 {/* Back Button */}

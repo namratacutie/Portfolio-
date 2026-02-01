@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageTransition from '../ui/PageTransition';
+import './NotFound.css';
 
 const NotFound = () => {
     const canvasRef = useRef(null);
@@ -164,19 +165,19 @@ const NotFound = () => {
     }, [gameStarted, gameOver]);
 
     return (
-        <main className="section" style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-            <h1 className="heading-lg neon-pink" style={{ fontSize: '4rem', marginBottom: '10px' }}>404</h1>
+        <main className="section not-found-page">
+            <h1 className="heading-lg neon-pink not-found-title">404</h1>
             <p className="text-body" style={{ marginBottom: '30px' }}>Page Not Found. But you found a game!</p>
 
-            <div className="glass-card" style={{ padding: '20px', borderRadius: '20px', display: 'inline-block' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px', color: 'var(--text-secondary)' }}>
+            <div className="glass-card not-found-game-container">
+                <div className="game-header">
                     <span>Score: <b style={{ color: 'var(--neon-cyan)' }}>{score}</b></span>
                     <span>High Score: <b style={{ color: 'var(--neon-purple)' }}>{highScore}</b></span>
                 </div>
 
                 <canvas
                     ref={canvasRef}
-                    style={{ border: '2px solid rgba(255,255,255,0.1)', borderRadius: '10px', background: '#050510', cursor: 'pointer' }}
+                    className="game-canvas"
                     onClick={() => {
                         if (gameOver) {
                             setGameOver(false);
@@ -188,10 +189,10 @@ const NotFound = () => {
                     }}
                 />
 
-                <p style={{ marginTop: '15px', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                <p className="game-footer">
                     {gameOver ?
-                        <span style={{ color: 'var(--neon-pink)' }}>GAME OVER! Click or arrow keys to restart.</span> :
-                        gameStarted ? "Use Arrow Keys to Move" : "Press Arrow Keys to Start"}
+                        <span style={{ color: 'var(--neon-pink)' }}>GAME OVER! Tap to restart.</span> :
+                        gameStarted ? "Use Arrows or Swipe" : "Tap to Start"}
                 </p>
             </div>
 

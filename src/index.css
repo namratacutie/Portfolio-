@@ -232,6 +232,27 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
+
+/* Global Mobile Adjustments */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 60px 5%;
+  }
+
+  .heading-xl {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .heading-lg {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.85rem;
+  }
+}
+
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }

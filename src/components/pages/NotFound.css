@@ -1,0 +1,59 @@
+.not-found-page {
+    height: 100vh;
+    min-height: 100svh;
+    /* Handle mobile address bar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.not-found-title {
+    font-size: clamp(3rem, 15vw, 6rem);
+    margin-bottom: 10px;
+}
+
+.not-found-game-container {
+    padding: 20px;
+    border-radius: 20px;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.game-canvas {
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: #050510;
+    cursor: pointer;
+    max-width: 100%;
+    touch-action: none;
+    /* Prevent scroll while playing */
+}
+
+.game-footer {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+    .not-found-game-container {
+        padding: 15px;
+    }
+
+    .game-canvas {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 1/1;
+    }
+}

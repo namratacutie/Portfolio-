@@ -149,3 +149,26 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Page Specific Styles */
+.blog-page-main {
+    padding-top: 120px;
+    min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .blog-page-main {
+        padding-top: 100px;
+    }
+}
+
+.blog-post-page {
+    padding-top: 120px;
+    min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .blog-post-page {
+        padding-top: 100px;
+    }
+}

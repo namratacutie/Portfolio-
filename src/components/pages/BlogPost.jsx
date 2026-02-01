@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getPostById } from '../../services/blog';
+import '../sections/Blog.css';
 
 const BlogPost = () => {
     const { id } = useParams();
@@ -24,11 +25,11 @@ const BlogPost = () => {
         fetchPost();
     }, [id]);
 
-    if (loading) return <div className="section" style={{ paddingTop: '120px', textAlign: 'center' }}>Loading...</div>;
-    if (!post) return <div className="section" style={{ paddingTop: '120px', textAlign: 'center' }}>Post not found</div>;
+    if (loading) return <div className="section blog-post-page" style={{ textAlign: 'center' }}>Loading...</div>;
+    if (!post) return <div className="section blog-post-page" style={{ textAlign: 'center' }}>Post not found</div>;
 
     return (
-        <main className="section" style={{ paddingTop: '120px' }}>
+        <main className="section blog-post-page">
             <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <Link to="/" className="btn btn-outline" style={{ marginBottom: '30px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
