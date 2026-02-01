@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import resume from '../../assets/Lawarna_Aree_ATS_Resume.pdf';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -65,7 +66,7 @@ const Navbar = () => {
 
                 {/* Resume Button */}
                 <a
-                    href="/resume.pdf"
+                    href={resume}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-outline navbar-cta hoverable"
