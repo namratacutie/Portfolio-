@@ -15,6 +15,7 @@ import { LenisProvider } from './components/context/LenisContext';
 import { AuthProvider } from './components/context/AuthContext.jsx';
 import Login from './components/pages/Login';
 import NotFound from './components/pages/NotFound';
+import Scene3D, { LenisTorus } from './components/3d/Scene';
 
 import { AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
@@ -74,6 +75,9 @@ const App = () => {
       smoothTouch: false,
       touchMultiplier: 2,
     }}>
+      <Scene3D isGlobal>
+        <LenisTorus position={[4, 2, 0]} color="#ff2d95" scale={1} />
+      </Scene3D>
       <ErrorBoundary>
         <AuthProvider>
           <Router>

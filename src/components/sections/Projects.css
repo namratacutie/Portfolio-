@@ -1,5 +1,5 @@
 .projects {
-    background: linear-gradient(180deg, var(--bg-dark) 0%, #0d0d15 100%);
+    background: transparent;
     padding: 120px 5%;
 }
 
@@ -52,7 +52,7 @@
 .filter-btn.active {
     border-color: var(--neon-cyan);
     color: var(--neon-cyan);
-    background: rgba(0, 240, 255, 0.1);
+    background: rgba(0, 240, 245, 0.1);
 }
 
 /* Projects Grid */
@@ -196,4 +196,15 @@
         padding: 10px 20px;
         font-size: 0.85rem;
     }
+}
+
+.no-projects {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 0;
+    color: var(--text-secondary);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    opacity: 0.6;
 }

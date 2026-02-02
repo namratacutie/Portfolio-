@@ -14,7 +14,8 @@ const CustomCursor = () => {
 
         // Add to trail
         setTrail(prev => {
-            const newTrail = [...prev, { x: e.clientX, y: e.clientY, id: Date.now() }];
+            const id = `${performance.now()}-${Math.random()}`;
+            const newTrail = [...prev, { x: e.clientX, y: e.clientY, id }];
             if (newTrail.length > 8) newTrail.shift();
             return newTrail;
         });

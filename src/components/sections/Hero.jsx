@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Scene3D from '../3d/Scene';
-import Avatar from '../3d/Avatar';
+import Scene3D, { HeroAtmosphere } from '../3d/Scene';
 import './Hero.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -114,9 +113,9 @@ const Hero = () => {
 
     return (
         <section id="hero" className="hero" ref={heroRef}>
-            {/* 3D Background */}
+            {/* 3D Background - Hero Local */}
             <Scene3D>
-                <Avatar position={[2, -1, 0]} scale={1.2} />
+                <HeroAtmosphere />
             </Scene3D>
 
             {/* Content overlay */}

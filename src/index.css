@@ -49,7 +49,7 @@
 
 body {
   font-family: var(--font-body);
-  background: var(--bg-dark);
+  background: transparent;
   color: var(--text-primary);
   overflow-x: hidden;
   min-height: 100vh;

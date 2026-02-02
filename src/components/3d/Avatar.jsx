@@ -1,6 +1,7 @@
 import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial } from '@react-three/drei';
+import { useLenis } from '../context/LenisContext';
 import * as THREE from 'three';
 
 // Stylized geometric avatar placeholder
@@ -16,19 +17,42 @@ const Avatar = ({ position = [0, 0, 0], scale = 1 }) => {
         accent: new THREE.Color('#b829dd')
     }), []);
 
+    const scrollProgress = useRef(0);
+
+    useLenis(({ progress }) => {
+        scrollProgress.current = progress;
+    });
+
     useFrame((state) => {
         if (groupRef.current) {
-            // Subtle floating animation
-            groupRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-            // Gentle rotation following mouse
+            // Constant floating base
+            const time = state.clock.elapsedTime;
+            const floatY = Math.sin(time * 0.5) * 0.2;
+
+            // Pathing based on scroll progress (p)
+            const p = scrollProgress.current;
+
+            // Curved path: Starts right, moves to background-left, then comes forward-right
+            groupRef.current.position.x = position[0] - Math.sin(p * Math.PI) * 10 + Math.cos(p * Math.PI * 0.5) * 2;
+            groupRef.current.position.y = position[1] + floatY - (p * 8) + Math.sin(p * Math.PI * 2) * 2;
+            groupRef.current.position.z = position[2] - p * 15 + Math.sin(p * Math.PI) * 10;
+
+            // Immersive Rotation
+            groupRef.current.rotation.x = p * Math.PI * 1.5;
             groupRef.current.rotation.y = THREE.MathUtils.lerp(
                 groupRef.current.rotation.y,
-                (state.mouse.x * Math.PI) / 10,
+                (state.mouse.x * Math.PI) / 3 + p * Math.PI * 3,
                 0.05
             );
+            groupRef.current.rotation.z = Math.sin(p * Math.PI * 2) * 0.5 + p * Math.PI;
+
+            // Dynamic Scaling
+            const dynamicScale = scale * (1 + Math.sin(p * Math.PI * 1.5) * 0.4);
+            groupRef.current.scale.setScalar(dynamicScale);
         }
+
         if (headRef.current) {
-            // Head bobbing
+            // Head still has its own subtle motion
             headRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 2) * 0.05;
         }
     });

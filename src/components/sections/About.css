@@ -1,5 +1,5 @@
 .about {
-    background: var(--bg-dark);
+    background: transparent;
     padding: 120px 5%;
     overflow: hidden;
 }
