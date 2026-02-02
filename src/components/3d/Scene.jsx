@@ -55,11 +55,11 @@ const LenisTorus = ({ position, color, scale = 1 }) => {
 
     return (
         <mesh ref={meshRef} position={position}>
-            <torusGeometry args={[1.2, 0.4, 16, 100]} />
+            <torusGeometry args={[1.2, 0.4, 12, 48]} />
             <meshStandardMaterial
                 color={color}
                 emissive={color}
-                emissiveIntensity={2.5}
+                emissiveIntensity={2}
                 metalness={0.9}
                 roughness={0.1}
             />
@@ -98,7 +98,7 @@ const NeonTorus = ({ position, color, speed = 1 }) => {
 
     return (
         <mesh ref={meshRef} position={position}>
-            <torusGeometry args={[1, 0.3, 16, 32]} />
+            <torusGeometry args={[1, 0.3, 12, 24]} />
             <meshStandardMaterial
                 color={color}
                 emissive={color}
@@ -191,7 +191,7 @@ const WireframeSphere = ({ position, color, scale = 1 }) => {
 
     return (
         <mesh ref={meshRef} position={position} scale={scale}>
-            <sphereGeometry args={[2, 16, 16]} />
+            <sphereGeometry args={[2, 12, 12]} />
             <meshBasicMaterial
                 color={color}
                 wireframe
@@ -213,7 +213,7 @@ const HeroAtmosphere = () => {
             <Stars
                 radius={100}
                 depth={50}
-                count={5000}
+                count={2500}
                 factor={4}
                 saturation={0}
                 fade
@@ -233,38 +233,26 @@ const Scene3D = ({ children, isGlobal = false }) => {
                     alpha: true,
                     powerPreference: "high-performance"
                 }}
-                dpr={[1, 2]}
+                dpr={[1, 1.5]}
             >
                 <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={50} />
 
                 {/* Optional background color for global scene, transparent for local */}
                 {isGlobal && <color attach="background" args={['#0a0a14']} />}
 
-                {/* Lighting */}
-                <ambientLight intensity={0.2} />
-                <pointLight position={[10, 10, 10]} intensity={1} color="#ff2d95" />
-                <pointLight position={[-10, -10, -10]} intensity={0.5} color="#00f0ff" />
-                <spotLight
-                    position={[0, 10, 0]}
-                    angle={0.3}
-                    penumbra={1}
-                    intensity={1}
-                    color="#b829dd"
-                />
+                {/* Lighting - Optimized to 2 lights */}
+                <ambientLight intensity={0.4} />
+                <pointLight position={[10, 10, 10]} intensity={1.5} color={isGlobal ? "#ff2d95" : "#00f0ff"} />
 
                 {children}
 
-                {/* Post-processing effects */}
-                <EffectComposer>
+                {/* Post-processing effects - Simplified */}
+                <EffectComposer disableNormalPass>
                     <Bloom
-                        intensity={1.5}
-                        luminanceThreshold={0.1}
+                        intensity={1.2}
+                        luminanceThreshold={0.2}
                         luminanceSmoothing={0.9}
                         mipmapBlur
-                    />
-                    <ChromaticAberration
-                        blendFunction={BlendFunction.NORMAL}
-                        offset={[0.002, 0.002]}
                     />
                 </EffectComposer>
             </Canvas>

@@ -68,6 +68,7 @@
     overflow: hidden;
     transition: var(--transition-normal);
     padding: 0;
+    will-change: transform;
 }
 
 .project-card:hover {
