@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import TextReveal from '../ui/TextReveal';
 import './About.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -81,9 +82,11 @@ const About = () => {
                     <span className="section-label text-retro neon-cyan about-animate">
                         ABOUT ME
                     </span>
-                    <h2 className="heading-lg about-animate">
-                        Turning Ideas Into <span className="gradient-text">Digital Reality</span>
-                    </h2>
+                    <TextReveal className="about-animate">
+                        <h2 className="heading-lg">
+                            Turning Ideas Into <span className="gradient-text">Digital Reality</span>
+                        </h2>
+                    </TextReveal>
                     <p className="text-body about-text about-animate">
                         I'm <span className="neon-pink">Lawarna Aree</span>, a passionate fullstack developer
                         based in Nepal. I specialize in building modern web applications and

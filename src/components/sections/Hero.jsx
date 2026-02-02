@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Scene3D from '../3d/Scene';
 import Avatar from '../3d/Avatar';
 import './Hero.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
     const heroRef = useRef(null);
@@ -64,8 +66,32 @@ const Hero = () => {
             ease: 'power1.inOut'
         });
 
+        // Parallax effect for hero content
+        gsap.to(heroRef.current.querySelector('.hero-text'), {
+            yPercent: 30,
+            ease: "none",
+            scrollTrigger: {
+                trigger: heroRef.current,
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        gsap.to(heroRef.current.querySelector('.hero-socials'), {
+            yPercent: -20,
+            ease: "none",
+            scrollTrigger: {
+                trigger: heroRef.current,
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
         return () => {
             tl.kill();
+            ScrollTrigger.getAll().forEach(t => t.kill());
         };
     }, []);
 

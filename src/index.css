@@ -57,20 +57,23 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--bg-dark);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--neon-pink);
-  border-radius: 4px;
+  background: linear-gradient(var(--neon-pink), var(--neon-purple));
+  border-radius: 10px;
+  border: 2px solid var(--bg-dark);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--neon-cyan);
+  background: linear-gradient(var(--neon-cyan), var(--neon-purple));
+  box-shadow: var(--glow-cyan);
 }
 
 /* Selection */

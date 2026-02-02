@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import TextReveal from '../ui/TextReveal';
 import './Experience.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -87,9 +88,11 @@ const Experience = () => {
                 {/* Header */}
                 <div className="experience-header">
                     <span className="section-label text-retro neon-cyan">JOURNEY</span>
-                    <h2 className="heading-lg">
-                        Work <span className="gradient-text">Experience</span>
-                    </h2>
+                    <TextReveal>
+                        <h2 className="heading-lg">
+                            Work <span className="gradient-text">Experience</span>
+                        </h2>
+                    </TextReveal>
                     <p className="text-body experience-subtitle">
                         My professional journey and education
                     </p>

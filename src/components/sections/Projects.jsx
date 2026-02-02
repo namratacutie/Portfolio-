@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import TextReveal from '../ui/TextReveal';
 import './Projects.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -64,6 +65,20 @@ const Projects = () => {
             }
         );
 
+        // Parallax effect for project cards
+        cards.forEach((card, index) => {
+            gsap.to(card, {
+                yPercent: (index % 2 === 0 ? -15 : 15),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });
+
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
@@ -75,9 +90,11 @@ const Projects = () => {
                 {/* Header */}
                 <div className="projects-header">
                     <span className="section-label text-retro neon-pink">PORTFOLIO</span>
-                    <h2 className="heading-lg">
-                        Featured <span className="gradient-text">Projects</span>
-                    </h2>
+                    <TextReveal>
+                        <h2 className="heading-lg">
+                            Featured <span className="gradient-text">Projects</span>
+                        </h2>
+                    </TextReveal>
                     <p className="text-body projects-subtitle">
                         A selection of my recent work and personal projects
                     </p>
