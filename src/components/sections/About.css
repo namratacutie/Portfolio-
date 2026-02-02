@@ -193,8 +193,9 @@
 
 @media (max-width: 480px) {
     .about-stats {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin: 30px 0;
     }
 
     .stat-number {

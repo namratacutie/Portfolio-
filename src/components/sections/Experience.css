@@ -184,11 +184,16 @@
 }
 
 @media (max-width: 480px) {
+    .timeline-item {
+        padding-left: 60px !important;
+        padding-right: 15px !important;
+    }
+
     .timeline-content {
-        padding: 20px;
+        padding: 15px;
     }
 
     .timeline-role {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 }

@@ -161,11 +161,12 @@
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        padding-top: 100px;
+        padding-top: 60px;
     }
 
     .hero-text {
         max-width: 100%;
+        margin-bottom: 30px;
     }
 
     .hero-subtitle {

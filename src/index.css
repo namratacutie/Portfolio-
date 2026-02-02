@@ -239,20 +239,43 @@ body {
 /* Global Mobile Adjustments */
 @media (max-width: 768px) {
   :root {
-    --section-padding: 60px 5%;
+    --section-padding: 80px 5%;
   }
 
   .heading-xl {
-    font-size: clamp(2.5rem, 10vw, 4rem);
+    font-size: clamp(2rem, 12vw, 4rem);
   }
 
   .heading-lg {
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(1.8rem, 10vw, 3rem);
+  }
+
+  .heading-md {
+    font-size: clamp(1.4rem, 6vw, 2.2rem);
   }
 
   .btn {
     padding: 12px 24px;
     font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 60px 5%;
+  }
+
+  .heading-xl {
+    font-size: clamp(1.8rem, 15vw, 3.5rem);
+  }
+
+  .heading-lg {
+    font-size: clamp(1.6rem, 12vw, 2.8rem);
+  }
+
+  .text-retro {
+    font-size: 0.6rem;
+    letter-spacing: 1px;
   }
 }
 
