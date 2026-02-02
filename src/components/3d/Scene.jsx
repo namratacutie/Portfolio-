@@ -6,7 +6,7 @@ import {
     Environment,
     Stars
 } from '@react-three/drei';
-import { useLenis } from '@studio-freight/react-lenis';
+import { useLenis } from '../context/LenisContext';
 import { EffectComposer, Bloom, ChromaticAberration } from '@react-three/postprocessing';
 import { BlendFunction } from 'postprocessing';
 import './Scene.css';

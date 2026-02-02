@@ -11,7 +11,7 @@ import './index.css';
 
 import ErrorBoundary from './components/ui/ErrorBoundary';
 
-import { ReactLenis } from '@studio-freight/react-lenis';
+import { LenisProvider } from './components/context/LenisContext';
 import { AuthProvider } from './components/context/AuthContext.jsx';
 import Login from './components/pages/Login';
 import NotFound from './components/pages/NotFound';
@@ -65,7 +65,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <ReactLenis root options={{
+    <LenisProvider options={{
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
@@ -83,7 +83,7 @@ const App = () => {
           </Router>
         </AuthProvider>
       </ErrorBoundary>
-    </ReactLenis>
+    </LenisProvider>
   );
 };
 
