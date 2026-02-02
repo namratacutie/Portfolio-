@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getPosts } from '../../services/blog';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import TextReveal from '../ui/TextReveal';
 import './Blog.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -63,9 +64,11 @@ const Blog = () => {
                 {/* Header */}
                 <div className="blog-header">
                     <span className="section-label text-retro neon-pink">ARTICLES</span>
-                    <h2 className="heading-lg">
-                        Latest <span className="gradient-text">Blog Posts</span>
-                    </h2>
+                    <TextReveal>
+                        <h2 className="heading-lg">
+                            Latest <span className="gradient-text">Blog Posts</span>
+                        </h2>
+                    </TextReveal>
                     <p className="text-body blog-subtitle">
                         Thoughts, tutorials, and insights on web development
                     </p>

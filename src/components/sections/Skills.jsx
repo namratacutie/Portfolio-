@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import TextReveal from '../ui/TextReveal';
 import './Skills.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -115,9 +116,11 @@ const Skills = () => {
                 {/* Header */}
                 <div className="skills-header">
                     <span className="section-label text-retro neon-purple">EXPERTISE</span>
-                    <h2 className="heading-lg">
-                        Skills & <span className="gradient-text">Technologies</span>
-                    </h2>
+                    <TextReveal>
+                        <h2 className="heading-lg">
+                            Skills & <span className="gradient-text">Technologies</span>
+                        </h2>
+                    </TextReveal>
                     <p className="text-body skills-subtitle">
                         Technologies I've been working with recently
                     </p>

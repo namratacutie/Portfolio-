@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import TextReveal from '../ui/TextReveal';
 import './Contact.css';
 import { db } from '../../services/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
@@ -115,9 +116,11 @@ const Contact = () => {
                 {/* Header */}
                 <div className="contact-header">
                     <span className="section-label text-retro gradient-text">GET IN TOUCH</span>
-                    <h2 className="heading-lg">
-                        Let's Work <span className="neon-cyan">Together</span>
-                    </h2>
+                    <TextReveal>
+                        <h2 className="heading-lg">
+                            Let's Work <span className="neon-cyan">Together</span>
+                        </h2>
+                    </TextReveal>
                     <p className="text-body contact-subtitle">
                         Have a project in mind? Let's discuss how we can bring your ideas to life.
                     </p>
