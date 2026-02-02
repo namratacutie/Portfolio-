@@ -6,6 +6,7 @@ import {
     Environment,
     Stars
 } from '@react-three/drei';
+import { useLenis } from '@studio-freight/react-lenis';
 import { EffectComposer, Bloom, ChromaticAberration } from '@react-three/postprocessing';
 import { BlendFunction } from 'postprocessing';
 import './Scene.css';
@@ -13,12 +14,17 @@ import './Scene.css';
 // Floating neon torus
 const NeonTorus = ({ position, color, speed = 1 }) => {
     const meshRef = useRef();
+    const scrollProgress = useRef(0);
+
+    useLenis(({ progress }) => {
+        scrollProgress.current = progress;
+    });
 
     useFrame((state) => {
         if (meshRef.current) {
-            meshRef.current.rotation.x = state.clock.elapsedTime * speed * 0.5;
-            meshRef.current.rotation.y = state.clock.elapsedTime * speed * 0.3;
-            meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * speed) * 0.3;
+            meshRef.current.rotation.x = state.clock.elapsedTime * speed * 0.5 + scrollProgress.current * 10;
+            meshRef.current.rotation.y = state.clock.elapsedTime * speed * 0.3 + scrollProgress.current * 5;
+            meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * speed) * 0.3 + scrollProgress.current * 2;
         }
     });
 
@@ -39,12 +45,17 @@ const NeonTorus = ({ position, color, speed = 1 }) => {
 // Floating neon octahedron
 const NeonOctahedron = ({ position, color, speed = 1 }) => {
     const meshRef = useRef();
+    const scrollProgress = useRef(0);
+
+    useLenis(({ progress }) => {
+        scrollProgress.current = progress;
+    });
 
     useFrame((state) => {
         if (meshRef.current) {
-            meshRef.current.rotation.x = state.clock.elapsedTime * speed * 0.4;
-            meshRef.current.rotation.z = state.clock.elapsedTime * speed * 0.6;
-            meshRef.current.position.y = position[1] + Math.cos(state.clock.elapsedTime * speed) * 0.4;
+            meshRef.current.rotation.x = state.clock.elapsedTime * speed * 0.4 + scrollProgress.current * 8;
+            meshRef.current.rotation.z = state.clock.elapsedTime * speed * 0.6 - scrollProgress.current * 6;
+            meshRef.current.position.y = position[1] + Math.cos(state.clock.elapsedTime * speed) * 0.4 - scrollProgress.current * 3;
         }
     });
 
@@ -91,11 +102,17 @@ const NeonIcosahedron = ({ position, color, speed = 1 }) => {
 // Wireframe sphere
 const WireframeSphere = ({ position, color, scale = 1 }) => {
     const meshRef = useRef();
+    const scrollProgress = useRef(0);
+
+    useLenis(({ progress }) => {
+        scrollProgress.current = progress;
+    });
 
     useFrame((state) => {
         if (meshRef.current) {
-            meshRef.current.rotation.y = state.clock.elapsedTime * 0.1;
-            meshRef.current.rotation.x = state.clock.elapsedTime * 0.05;
+            meshRef.current.rotation.y = state.clock.elapsedTime * 0.1 + scrollProgress.current * 4;
+            meshRef.current.rotation.x = state.clock.elapsedTime * 0.05 + scrollProgress.current * 2;
+            meshRef.current.scale.setScalar(scale + Math.sin(scrollProgress.current * Math.PI) * 0.5);
         }
     });
 
