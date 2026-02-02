@@ -16,15 +16,14 @@ const VisitorCounter = () => {
 
         const counterRef = ref(rtdb, 'visitors/count');
 
-        // Increment counter on mount (once per session ideally, but for now every load is fine for checking)
-        // In production, you might want to check localStorage to avoid double counting
-        const hasVisited = sessionStorage.getItem('hasVisited');
+        // Unique visitor tracking using localStorage
+        const hasVisited = localStorage.getItem('hasVisitedUnique');
 
         if (!hasVisited) {
             runTransaction(counterRef, (currentValue) => {
                 return (currentValue || 0) + 1;
             }).then(() => {
-                sessionStorage.setItem('hasVisited', 'true');
+                localStorage.setItem('hasVisitedUnique', 'true');
             }).catch((err) => {
                 console.error("Counter transaction failed: ", err);
             });
