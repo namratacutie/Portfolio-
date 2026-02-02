@@ -67,6 +67,7 @@ const Navbar = () => {
                 {/* Resume Button */}
                 <a
                     href={resume}
+                    download="Lawarna_Aree_Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-outline navbar-cta hoverable"
@@ -101,7 +102,8 @@ const Navbar = () => {
                     ))}
                 </ul>
                 <a
-                    href="/resume.pdf"
+                    href={resume}
+                    download="Lawarna_Aree_Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-primary mobile-cta hoverable"
