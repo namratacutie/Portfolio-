@@ -11,7 +11,7 @@ import './index.css';
 
 import ErrorBoundary from './components/ui/ErrorBoundary';
 
-import Lenis from 'lenis';
+import { ReactLenis } from '@studio-freight/react-lenis';
 import { AuthProvider } from './components/context/AuthContext.jsx';
 import Login from './components/pages/Login';
 import NotFound from './components/pages/NotFound';
@@ -64,35 +64,26 @@ const AnimatedRoutes = () => {
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  React.useEffect(() => {
-    const lenis = new Lenis({
+  return (
+    <ReactLenis root options={{
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
-
-  return (
-    <ErrorBoundary>
-      <AuthProvider>
-        <Router>
-          <CustomCursor />
-          {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
-          <AnimatedRoutes />
-        </Router>
-      </AuthProvider>
-    </ErrorBoundary>
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothTouch: false,
+      touchMultiplier: 2,
+    }}>
+      <ErrorBoundary>
+        <AuthProvider>
+          <Router>
+            <CustomCursor />
+            {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+            <AnimatedRoutes />
+          </Router>
+        </AuthProvider>
+      </ErrorBoundary>
+    </ReactLenis>
   );
 };
 
