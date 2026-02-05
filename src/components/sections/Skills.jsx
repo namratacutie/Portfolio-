@@ -39,9 +39,9 @@ const Skills = () => {
             icon: '🗄️',
             color: 'var(--neon-purple)',
             skills: [
-                { name: 'MongoDB', level: 60 },
+                { name: 'MongoDB', level: 25 },
                 { name: 'PostgreSQL', level: 20 },
-                { name: 'Firebase / Firestore', level: 90 },
+                { name: 'Firebase / Firestore', level: 85 },
                 { name: 'Redis', level: 30 },
                 { name: 'MySQL', level: 80 }
             ]
